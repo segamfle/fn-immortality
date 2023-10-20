@@ -1,0 +1,12 @@
+void MakeImmortality(DefaultPawn LocalPawn)
+{
+    void* v1 = read<void*>(LocalPawn.AActor + 0x30a0);
+    uint8_t v2 = read<uint8_t>((uintptr_t)v1 + 0x78 * 17);
+    void* v3 = ((int*)v1 + v2 * 2);
+    write<uintptr_t>(LocalPawn.APlayerState + 0x64, 0.01f);
+    int l23 = (*(int*)v3 * *(int*)v1);
+    float MUlt = l23 * 0.01f;
+    write<float>(LocalPawn.AActor + 0x140c * 3, MUlt);
+    write<float>(LocalPawn.AActor + 0x1410 * 3, MUlt + 1);
+    write<float>(LocalPawn.AActor + 0x142c * 3, MUlt + 2);
+}
